@@ -21,8 +21,8 @@ const Header = () => {
                         </Nav>
                         <Nav>
                             <Nav.Link>Dark Theme</Nav.Link>
-                            <Nav.Link>
-                                Profile
+                            <Nav.Link as={NavLink} to="/login">
+                                Login
                             </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
