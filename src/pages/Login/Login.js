@@ -1,16 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { MdOutlineEmail, MdPassword } from "react-icons/md";
+import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
+    const [error, setError] = useState('');
+    // Get Auth Context Data
+    const { logIn, setLoading } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
+
+    // Handle login form Data
+    const handleLogin = e => {
+        e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        // console.log(email, password);
+        logIn(email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                setError('');
+                navigate(from, { replace: true });
+            })
+            .catch((error) => {
+                console.error(error)
+                toast.error(error.message);
+            })
+            .finally(() => {
+                setLoading(false);
+            })
+    }
+
     return (
         <div>
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-7 m-auto">
                         <div className="card">
-                            <form>
+                            <form onSubmit={handleLogin}>
                                 <div className="card-body">
                                     <div className="text-center">
                                         <h3>Login</h3>

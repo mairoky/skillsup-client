@@ -7,6 +7,7 @@ import Blog from "../pages/Blog/Blog";
 import PageNotFound from "../pages/PageNotFound/PageNotFound";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
+import Profile from "../pages/Profile/Profile";
 
 export const routes = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/profile',
+                element: <Profile></Profile>
             }
         ]
     },
