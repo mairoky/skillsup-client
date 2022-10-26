@@ -41,7 +41,7 @@ const CourseDetail = () => {
             <div className="course-detail-content py-5">
                 <Container>
                     <Row>
-                        <Col md={8}>
+                        <Col md={9}>
                             <div className="course-detail-info">
                                 <h4>Course Description:</h4>
                                 <p>{des}</p>
@@ -55,7 +55,42 @@ const CourseDetail = () => {
                                 }
                             </div>
                         </Col>
-                        <Col md={4}></Col>
+                        <Col md={3}>
+                            <div className="right-side-bar">
+                                <button className='d-block w-100 btn btn-outline-danger'>Download Curriculum</button>
+                                <div className="course-feature mt-5">
+                                    <h4>Course Features</h4>
+                                    <div className='d-flex justify-content-between mb-2'>
+                                        <span>Price:</span>
+                                        <span>{course.price}</span>
+                                    </div>
+                                    <div className='d-flex justify-content-between mb-2'>
+                                        <span>Lectures:</span>
+                                        <span>{course.lectures}</span>
+                                    </div>
+                                    <div className='d-flex justify-content-between mb-2'>
+                                        <span>Quizzes:</span>
+                                        <span>{course.quizzes}</span>
+                                    </div>
+                                    <div className='d-flex justify-content-between mb-2'>
+                                        <span>Duration:</span>
+                                        <span>{course.duration}</span>
+                                    </div>
+                                    <div className='d-flex justify-content-between mb-2'>
+                                        <span>Skill Level:</span>
+                                        <span>All Level</span>
+                                    </div>
+                                    <div className='d-flex justify-content-between mb-2'>
+                                        <span>Language:</span>
+                                        <span>{language}</span>
+                                    </div>
+                                    <div className='d-flex justify-content-between mb-2'>
+                                        <span>Assessment:</span>
+                                        <span>Yes</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </Col>
                     </Row>
                 </Container>
             </div>

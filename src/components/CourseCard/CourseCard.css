@@ -11,6 +11,11 @@
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 }
 
+.course-footer {
+    padding: 0.4rem 0;
+    background-color: transparent;
+}
+
 .instructor-img {
     max-width: 35px;
     height: 35px;
