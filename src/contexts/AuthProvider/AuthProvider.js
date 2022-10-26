@@ -27,13 +27,13 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password);
     }
 
-    // Login with Google
-    const googleLogin = (provider) => {
+    // Login with Google & Facebook
+    const socialLogin = (provider) => {
         setLoading(true);
         return signInWithPopup(auth, provider);
     }
 
-    // Login with Facebook
+
 
     // Log out
     const logOut = () => {
@@ -56,7 +56,7 @@ const AuthProvider = ({ children }) => {
         createUser,
         updateUserProfile,
         logIn,
-        googleLogin,
+        socialLogin,
         user,
         logOut,
         setLoading,

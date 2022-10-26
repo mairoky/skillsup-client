@@ -9,7 +9,7 @@ import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
     const [error, setError] = useState('');
     // Get Auth Context Data
-    const { logIn, googleLogin, setLoading } = useContext(AuthContext);
+    const { logIn, socialLogin, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -46,7 +46,7 @@ const Login = () => {
 
     // Handle Google Login
     const handleGoogleLogIn = () => {
-        googleLogin(googleProvider)
+        socialLogin(googleProvider)
             .then(result => {
                 const user = result.user;
                 // console.log(user);
@@ -58,7 +58,14 @@ const Login = () => {
 
     // Handle Facebook Login 
     const handleFacebookLogin = () => {
-
+        socialLogin(facebookProvider)
+            .then(result => {
+                const user = result.user;
+                // console.log(user);
+                setError('');
+                navigate(from, { replace: true });
+            })
+            .catch(err => console.error(err))
     }
 
     return (
