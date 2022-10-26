@@ -4,15 +4,21 @@ import { FaGoogle, FaFacebook } from "react-icons/fa";
 import { MdOutlineEmail, MdPassword } from "react-icons/md";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const [error, setError] = useState('');
     // Get Auth Context Data
-    const { logIn, setLoading } = useContext(AuthContext);
+    const { logIn, googleLogin, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
+
+    // Google Provider Instance
+    const googleProvider = new GoogleAuthProvider();
+    // Facebook Provider Instance
+    const facebookProvider = new FacebookAuthProvider();
 
     // Handle login form Data
     const handleLogin = e => {
@@ -36,6 +42,23 @@ const Login = () => {
             .finally(() => {
                 setLoading(false);
             })
+    }
+
+    // Handle Google Login
+    const handleGoogleLogIn = () => {
+        googleLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                // console.log(user);
+                setError('');
+                navigate(from, { replace: true });
+            })
+            .catch(err => console.error(err))
+    }
+
+    // Handle Facebook Login 
+    const handleFacebookLogin = () => {
+
     }
 
     return (
@@ -67,8 +90,8 @@ const Login = () => {
                                     </div>
                                     <hr />
                                     <div className="text-center social-login">
-                                        <Link className="d-block btn btn-outline-success"><FaGoogle /> Login with Google</Link>
-                                        <Link className="d-block btn btn-outline-success mt-2"><FaFacebook /> Login with Facebook</Link>
+                                        <Link onClick={handleGoogleLogIn} className="d-block btn btn-outline-success"><FaGoogle /> Login with Google</Link>
+                                        <Link onClick={handleFacebookLogin} className="d-block btn btn-outline-success mt-2"><FaFacebook /> Login with Facebook</Link>
                                     </div>
                                 </div>
                             </form>
