@@ -8,6 +8,7 @@ import PageNotFound from "../pages/PageNotFound/PageNotFound";
 import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import Profile from "../pages/Profile/Profile";
+import CourseDetail from "../pages/CourseDetail/CourseDetail";
 
 export const routes = createBrowserRouter([
     {
@@ -20,7 +21,13 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/course',
-                element: <Course></Course>
+                element: <Course></Course>,
+                loader: () => fetch('https://learning-website-server-ten.vercel.app/course')
+            },
+            {
+                path: '/course/:id',
+                element: <CourseDetail></CourseDetail>,
+                loader: ({ params }) => fetch(`https://learning-website-server-ten.vercel.app/course/${params.id}`)
             },
             {
                 path: '/faq',
