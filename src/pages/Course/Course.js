@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -20,7 +20,12 @@ const Course = () => {
                             }
                         </Row>
                     </Col>
-                    <Col md={4}></Col>
+                    <Col md={4}>
+                        <h4>Popular Course</h4>
+                        {
+                            courses.map(c => <p key={c.id}><Link to={`/course/${c.id}`}>{c.course.title}</Link></p>)
+                        }
+                    </Col>
                 </Row>
             </Container>
         </div>
