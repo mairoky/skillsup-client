@@ -9,6 +9,8 @@ import Register from "../pages/Register/Register";
 import Login from "../pages/Login/Login";
 import Profile from "../pages/Profile/Profile";
 import CourseDetail from "../pages/CourseDetail/CourseDetail";
+import Checkout from "../pages/Checkout/Checkout";
+import ProtectedRoutes from "./ProtectedRoutes";
 
 export const routes = createBrowserRouter([
     {
@@ -48,6 +50,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/profile',
                 element: <Profile></Profile>
+            },
+            {
+                path: '/checkout/:id',
+                element: <ProtectedRoutes><Checkout></Checkout></ProtectedRoutes>,
+                loader: ({ params }) => fetch(`https://learning-website-server-ten.vercel.app/course/${params.id}`)
             }
         ]
     },

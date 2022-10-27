@@ -8,8 +8,8 @@ import './CourseDetail.css';
 
 const CourseDetail = () => {
     const data = useLoaderData();
-    console.log(data);
-    const { course, shortDes, des, learn, instructor, lastUpdate, language, targetAudience, tag } = data;
+    const { id, course, shortDes, des, learn, instructor, lastUpdate, language, targetAudience, tag } = data;
+
     return (
         <div className='course-detail'>
             <div className="course-header py-5">
@@ -54,11 +54,16 @@ const CourseDetail = () => {
                                     targetAudience.map((ta, idx) => <li><Link>{ta}</Link></li>)
                                 }
                             </div>
+                            <div className='text-center mt-3'>
+                                <Link to={`/checkout/${id}`} className='btn btn-success'>Get Premium Access</Link>
+                            </div>
                         </Col>
                         <Col md={3}>
                             <div className="right-side-bar">
                                 <button className='d-block w-100 btn btn-outline-danger'>Download Curriculum</button>
-                                <div className="course-feature mt-5">
+                                <Link to={`/checkout/${id}`} className='d-block w-100 btn btn-outline-success mt-3'>Enrol Now</Link>
+
+                                <div className="course-feature mt-3">
                                     <h4>Course Features</h4>
                                     <div className='d-flex justify-content-between mb-2'>
                                         <span>Price:</span>
@@ -74,7 +79,7 @@ const CourseDetail = () => {
                                     </div>
                                     <div className='d-flex justify-content-between mb-2'>
                                         <span>Duration:</span>
-                                        <span>{course.duration}</span>
+                                        <span>{course.duration} hours</span>
                                     </div>
                                     <div className='d-flex justify-content-between mb-2'>
                                         <span>Skill Level:</span>

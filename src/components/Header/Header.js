@@ -35,38 +35,40 @@ const Header = () => {
                             <Nav.Link>Dark Theme</Nav.Link>
                             {
                                 user?.uid ?
-                                    <Nav.Link as={Link} onClick={handleLogOut} >
-                                        Logout
-                                    </Nav.Link>
+                                    <>
+                                        <Nav.Link as={Link} onClick={handleLogOut} >
+                                            Logout
+                                        </Nav.Link>
+                                        <Nav.Link to="/profile">
+                                            <OverlayTrigger
+                                                placement='bottom'
+                                                overlay={
+                                                    <Tooltip>
+                                                        {user?.displayName}
+                                                    </Tooltip>
+                                                }>
+                                                {
+                                                    user?.photoURL ?
+                                                        <Image
+                                                            src={user?.photoURL}
+                                                            roundedCircle
+                                                            style={{ height: '30px' }}>
+                                                        </Image>
+                                                        :
+                                                        <Image
+                                                            src={ProfileImage}
+                                                            roundedCircle
+                                                            style={{ height: '30px' }}>
+                                                        </Image>
+                                                }
+                                            </OverlayTrigger>
+                                        </Nav.Link>
+                                    </>
                                     :
                                     <Nav.Link as={NavLink} to="/login">
                                         Login
                                     </Nav.Link>
                             }
-                            <Nav.Link to="/profile">
-                                <OverlayTrigger
-                                    placement='bottom'
-                                    overlay={
-                                        <Tooltip>
-                                            {user?.displayName}
-                                        </Tooltip>
-                                    }>
-                                    {
-                                        user?.photoURL ?
-                                            <Image
-                                                src={user?.photoURL}
-                                                roundedCircle
-                                                style={{ height: '30px' }}>
-                                            </Image>
-                                            :
-                                            <Image
-                                                src={ProfileImage}
-                                                roundedCircle
-                                                style={{ height: '30px' }}>
-                                            </Image>
-                                    }
-                                </OverlayTrigger>
-                            </Nav.Link>
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
