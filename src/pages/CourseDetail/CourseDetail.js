@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { FaStar } from "react-icons/fa";
+import { useReactToPrint } from 'react-to-print';
 import './CourseDetail.css';
 
 const CourseDetail = () => {
     const data = useLoaderData();
     const { id, course, shortDes, des, learn, instructor, lastUpdate, language, targetAudience, tag } = data;
 
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+    });
+
     return (
         <div className='course-detail my-4'>
-            <div className="course-header py-3">
+            <div ref={componentRef} className="course-header py-3">
                 <Container>
                     <Row className='align-items-center'>
                         <Col lg={4} md={6} sm={12}>
@@ -32,7 +38,7 @@ const CourseDetail = () => {
                                 <p>Last updated {lastUpdate}</p>
                                 <div className="course-rating-info">
                                     <span><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /> {course.rating}</span>
-                                    <button className='ms-2 btn btn-outline-danger'>Download Curriculum</button>
+                                    <button onClick={handlePrint} className='ms-2 btn btn-outline-danger'>Download Curriculum</button>
                                 </div>
                             </div>
                         </Col>
@@ -61,10 +67,8 @@ const CourseDetail = () => {
                         </Col>
                         <Col lg={3} md={12}>
                             <div className="right-side-bar">
-                                <button className='d-block w-100 btn btn-outline-danger'>Download Curriculum</button>
-                                <Link to={`/checkout/${id}`} className='d-block w-100 btn btn-outline-success mt-3'>Enrol Now</Link>
 
-                                <div className="course-feature mt-3 side-bar-box">
+                                <div className="course-feature side-bar-box">
                                     <h4>Course Features</h4>
                                     <div className='d-flex justify-content-between mb-2'>
                                         <span>Price:</span>
@@ -94,6 +98,7 @@ const CourseDetail = () => {
                                         <span>Assessment:</span>
                                         <span>Yes</span>
                                     </div>
+                                    <Link to={`/checkout/${id}`} className='d-block w-100 btn btn-outline-success'>Enrol Now</Link>
                                 </div>
                             </div>
                         </Col>
