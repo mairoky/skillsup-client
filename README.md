@@ -1,6 +1,25 @@
-# Getting Started with Create React App
+# React Project: SkillsUP Learning Website 
+SkillsUP is a web app for learn demanding skills. 
+## Live Link: https://learning-website-react.web.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Core technologies that are used to build this project:
+    - React JS - for building the UI.
+    - React Bootstrap, Bootstrap & vanilla css are used for styling components.
+    - For device specifics responsiveness is done by Bootstrap.
+    - Firebase Auth is used for Authenticate User
+    - For hosting this site used Firebase Hosting
+
+## Outcome of this Project
+Mainly This project is highlight the core features of React JS, Firebase Auth Integration, & use of React Context API.
+
+## Package Used
+    - bootstrap
+    - react-bootstrap
+    - react-to-print
+    - react-hot-toast
+    - react-icons
+    - react-loader-spinner
+    - firebase
 
 ## Available Scripts
 
