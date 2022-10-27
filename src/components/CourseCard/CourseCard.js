@@ -19,7 +19,7 @@ const CourseCard = ({ data }) => {
                             <span><FaStar /> {course.rating}</span>
                         </div>
                         <div className="course-price">
-                            <h4 className='m-0'>{course.price}</h4>
+                            <h4 className='m-0'>${course.price}</h4>
                         </div>
                     </div>
                     <Card.Title>

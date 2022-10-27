@@ -67,7 +67,7 @@ const CourseDetail = () => {
                                     <h4>Course Features</h4>
                                     <div className='d-flex justify-content-between mb-2'>
                                         <span>Price:</span>
-                                        <span>{course.price}</span>
+                                        <span>${course.price}</span>
                                     </div>
                                     <div className='d-flex justify-content-between mb-2'>
                                         <span>Lectures:</span>

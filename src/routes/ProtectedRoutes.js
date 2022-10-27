@@ -3,6 +3,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../contexts/AuthProvider/AuthProvider';
 import Spinner from 'react-bootstrap/Spinner';
 
+
 const ProtectedRoutes = ({ children }) => {
     const { user, loading } = useContext(AuthContext);
     const location = useLocation();
