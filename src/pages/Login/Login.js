@@ -72,7 +72,7 @@ const Login = () => {
         <div className='my-4'>
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-9 col-md-7 col-12 m-auto">
+                    <div className="col-lg-6 col-md-6 col-12 m-auto">
                         <div className="card">
                             <form onSubmit={handleLogin}>
                                 <div className="card-body">
@@ -91,8 +91,8 @@ const Login = () => {
                                         <input type="password" id="password" name="password" className="form-control" required />
                                     </div>
                                     <div className="text-center">
-                                        <button className="btn btn-success login-btn mt-3">Login</button>
-                                        <Link to="/register" className="d-block register-link">Don't have Account?<span> Register Now</span></Link>
+                                        <button className="btn w-75 btn-success login-btn mt-3">Login</button>
+                                        <Link to="/register" className="d-block register-link mt-2">Don't have Account?<span> Register Now</span></Link>
                                         <Link className="d-block">Forgot Password?</Link>
                                     </div>
                                     <hr />

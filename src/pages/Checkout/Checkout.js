@@ -34,7 +34,7 @@ const Checkout = () => {
         <div className='checkout my-4'>
             <Container>
                 <Row className='align-items-lg-center'>
-                    <Col lg={4} sm={12}>
+                    <Col lg={5} sm={12}>
                         <Card>
                             <Card.Img variant="top" src={course.image} />
                             <Card.Body>
@@ -52,7 +52,7 @@ const Checkout = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col lg={8} sm={12}>
+                    <Col lg={7} sm={12}>
                         <div className="card form-card">
                             <form onSubmit={handleCheckOut}>
                                 <div className="card-body">

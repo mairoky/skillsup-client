@@ -44,15 +44,15 @@ const Header = () => {
     }
 
     return (
-        <header className='py-2'>
+        <header className='py-3'>
             <Navbar collapseOnSelect expand="lg" sticky="top">
                 <Container>
                     <Navbar.Brand className='logo' as={Link} to="/">
                         <img
                             alt=""
                             src={Logo}
-                            width="30"
-                            height="30"
+                            width="40"
+                            height="40"
                             className="d-inline-block align-top"
                         />{' '}
                         Skills<span>UP</span>

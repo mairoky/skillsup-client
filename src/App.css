@@ -36,7 +36,8 @@ a {
 }
 
 a:hover,
-a:focus {
+a:focus,
+a:active {
     color: var(--secondary-color);
 }
 
@@ -46,4 +47,16 @@ a:focus {
     box-shadow: none;
     border-radius: 0.5rem;
     border: 1px solid #e8ecf7;
+}
+
+input.form-control {
+    transition: var(--transition);
+    color: var(--font-color);
+    border: 1px solid var(--font-color);
+}
+
+input.form-control:focus {
+    border: 1px solid var(--secondary-color);
+    box-shadow: none;
+    color: var(--secondary-color);
 }

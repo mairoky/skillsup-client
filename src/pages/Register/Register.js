@@ -94,7 +94,7 @@ const Register = () => {
         <div className='my-4'>
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-9 col-md-7 col-12 m-auto">
+                    <div className="col-lg-7 col-md-7 col-12 m-auto">
                         <div className="card">
                             <form onSubmit={handleRegistration}>
                                 <div className="card-body">
@@ -123,8 +123,8 @@ const Register = () => {
                                         <input type="password" id="password" name="password" className="form-control" required />
                                     </div>
                                     <div className="text-center">
-                                        <button type="submit" className="btn btn-success login-btn mt-3">Register</button>
-                                        <Link to="/login" className="d-block register-link">Already have an Account?<span> Login Now</span></Link>
+                                        <button type="submit" className="w-75 btn btn-success login-btn mt-3">Register</button>
+                                        <Link to="/login" className="d-block register-link mt-2">Already have an Account?<span> Login Now</span></Link>
                                     </div>
                                     <hr />
                                     <div className="text-center social-login">
