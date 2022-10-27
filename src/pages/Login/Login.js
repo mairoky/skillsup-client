@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { FaGoogle, FaFacebook } from "react-icons/fa";
+import { FaGoogle, FaFacebook, FaGithub } from "react-icons/fa";
 import { MdOutlineEmail, MdPassword } from "react-icons/md";
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
-import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
     const [error, setError] = useState('');
@@ -19,6 +19,8 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider();
     // Facebook Provider Instance
     const facebookProvider = new FacebookAuthProvider();
+    // Github Provider Instance
+    const githubProvider = new GithubAuthProvider();
 
     // Handle login form Data
     const handleLogin = e => {
@@ -68,6 +70,18 @@ const Login = () => {
             .catch(err => console.error(err))
     }
 
+    // Handle Github Login
+    const handleGithubLogin = () => {
+        socialLogin(githubProvider)
+            .then(result => {
+                const user = result.user;
+                // console.log(user);
+                setError('');
+                navigate(from, { replace: true });
+            })
+            .catch(err => console.error(err))
+    }
+
     return (
         <div className='my-4'>
             <div className="container">
@@ -99,6 +113,7 @@ const Login = () => {
                                     <div className="text-center social-login">
                                         <Link onClick={handleGoogleLogIn} className="d-block btn btn-outline-success"><FaGoogle /> Login with Google</Link>
                                         <Link onClick={handleFacebookLogin} className="d-block btn btn-outline-success mt-2"><FaFacebook /> Login with Facebook</Link>
+                                        <Link onClick={handleGithubLogin} className="d-block btn btn-outline-success mt-2"><FaGithub /> Login with Github</Link>
                                     </div>
                                 </div>
                             </form>
