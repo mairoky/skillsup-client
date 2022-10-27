@@ -52,7 +52,7 @@ const CourseDetail = () => {
                                 }
                                 <h4 className='mt-3'>Target Audience:</h4>
                                 {
-                                    targetAudience.map((ta, idx) => <li><Link>{ta}</Link></li>)
+                                    targetAudience.map((ta, idx) => <li key={idx}><Link>{ta}</Link></li>)
                                 }
                             </div>
                             <div className='text-center mt-3'>
