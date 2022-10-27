@@ -13,14 +13,14 @@ const Course = () => {
         <div className='course my-4'>
             <Container>
                 <Row>
-                    <Col md={8}>
+                    <Col lg={8} md={7} sm={12}>
                         <Row>
                             {
                                 courses.map(c => <CourseCard key={c.id} data={c}></CourseCard>)
                             }
                         </Row>
                     </Col>
-                    <Col md={4}>
+                    <Col lg={4} md={5} sm={12}>
                         <div className='course-side-bar side-bar-box'>
                             <h5 className='mb-3'>Popular Course</h5>
                             {

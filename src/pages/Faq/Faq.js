@@ -6,7 +6,7 @@ const Faq = () => {
         <div className='my-4'>
             <div className="container">
                 <div className="row">
-                    <div className="col-md-9 m-auto">
+                    <div className="col-10 m-auto">
                         <Accordion defaultActiveKey="0">
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header>How do I take a course?</Accordion.Header>

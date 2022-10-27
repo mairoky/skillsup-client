@@ -72,7 +72,7 @@ const Login = () => {
         <div className='my-4'>
             <div className="container">
                 <div className="row">
-                    <div className="col-12 col-md-7 m-auto">
+                    <div className="col-lg-9 col-md-7 col-12 m-auto">
                         <div className="card">
                             <form onSubmit={handleLogin}>
                                 <div className="card-body">

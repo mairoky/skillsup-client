@@ -8,12 +8,11 @@ const Footer = () => {
         <footer className='pt-3'>
             <div className="footer-top">
                 <div className="container">
-                    <div className="row row row-cols-1 row-cols-sm-2 row-cols-md-5 py-2 my-2">
+                    <div className="row row row-cols-1 row-cols-sm-2 row-cols-md-4 py-2 my-2">
                         <div className="col mb-3">
                             <Link className='d-flex align-items-center mb-2 link-dark text-decoration-none'><h5 className='m-0'>Skills<span>UP</span></h5></Link>
                             <p>Great lesson ideas and lesson plans for ESL teachers! Educators can customize lesson plans to best.</p>
                         </div>
-                        <div className="col mb-3"></div>
                         <div className="col mb-3">
                             <h5>Navigation</h5>
                             <ul className='nav flex-column'>
@@ -47,11 +46,11 @@ const Footer = () => {
             </div>
             <div className="footer-bottom">
                 <div className="container">
-                    <div className="row align-items-center">
+                    <div className="row align-items-md-center">
                         <div className="col-md-6">
-                            <p className='mb-0'>© 2023 SkillsUP. Develop By <Link>RockX Solutions</Link></p>
+                            <p className='mb-0 text-md-start text-center'>© 2023 SkillsUP. Develop By <Link>RockX Solutions</Link></p>
                         </div>
-                        <div className="col-md-6 text-end">
+                        <div className="col-md-6 text-md-end text-center">
                             <ul className="footer-bottom-social">
                                 <li><Link><FaFacebookSquare /></Link></li>
                                 <li><Link><FaTwitterSquare /></Link></li>

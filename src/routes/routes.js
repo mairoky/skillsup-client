@@ -49,7 +49,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/profile',
-                element: <Profile></Profile>
+                element: <ProtectedRoutes><Profile></Profile></ProtectedRoutes>
             },
             {
                 path: '/checkout/:id',

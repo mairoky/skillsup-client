@@ -12,15 +12,15 @@ const CourseDetail = () => {
 
     return (
         <div className='course-detail my-4'>
-            <div className="course-header py-5">
+            <div className="course-header py-3">
                 <Container>
                     <Row className='align-items-center'>
-                        <Col md={4}>
+                        <Col lg={4} md={6} sm={12}>
                             <div className="course-image">
                                 <img className='img-fluid rounded' src={course.image} alt="" />
                             </div>
                         </Col>
-                        <Col md={8}>
+                        <Col lg={8} md={6} sm={12}>
                             <div className="course-header-content">
                                 <div className="course-tag">
                                     {
@@ -39,10 +39,10 @@ const CourseDetail = () => {
                     </Row>
                 </Container>
             </div>
-            <div className="course-detail-content py-5">
+            <div className="course-detail-content py-3">
                 <Container>
                     <Row>
-                        <Col md={9}>
+                        <Col lg={9} md={12} sm={12}>
                             <div className="course-detail-info side-bar-box">
                                 <h4>Course Description:</h4>
                                 <p>{des}</p>
@@ -59,7 +59,7 @@ const CourseDetail = () => {
                                 <Link to={`/checkout/${id}`} className='btn btn-success'>Get Premium Access</Link>
                             </div>
                         </Col>
-                        <Col md={3}>
+                        <Col lg={3} md={12}>
                             <div className="right-side-bar">
                                 <button className='d-block w-100 btn btn-outline-danger'>Download Curriculum</button>
                                 <Link to={`/checkout/${id}`} className='d-block w-100 btn btn-outline-success mt-3'>Enrol Now</Link>

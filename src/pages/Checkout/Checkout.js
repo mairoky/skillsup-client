@@ -4,9 +4,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import './Checkout.css';
 import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import toast from 'react-hot-toast';
+import './Checkout.css';
 
 const Checkout = () => {
     const data = useLoaderData();
@@ -33,8 +33,8 @@ const Checkout = () => {
     return (
         <div className='checkout my-4'>
             <Container>
-                <Row className='align-items-center'>
-                    <Col md={4}>
+                <Row className='align-items-lg-center'>
+                    <Col lg={4} sm={12}>
                         <Card>
                             <Card.Img variant="top" src={course.image} />
                             <Card.Body>
@@ -52,8 +52,8 @@ const Checkout = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col md={8}>
-                        <div className="card">
+                    <Col lg={8} sm={12}>
+                        <div className="card form-card">
                             <form onSubmit={handleCheckOut}>
                                 <div className="card-body">
                                     <div className="text-center">

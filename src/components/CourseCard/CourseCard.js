@@ -8,7 +8,7 @@ const CourseCard = ({ data }) => {
     // console.log(data);
     const { id, course, shortDes, instructor } = data;
     return (
-        <div className='col-md-6'>
+        <div className='col-lg-6 col-12'>
             <Card className="course-item">
                 <Link to={`/course/${id}`}>
                     <Card.Img variant="top" className='img-fluid' src={course.image} />
