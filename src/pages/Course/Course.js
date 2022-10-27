@@ -3,14 +3,14 @@ import { Link, useLoaderData } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import './Course.css';
 import CourseCard from '../../components/CourseCard/CourseCard';
+import './Course.css';
 
 const Course = () => {
     const courses = useLoaderData();
     // console.log(courses);
     return (
-        <div className='course'>
+        <div className='course my-4'>
             <Container>
                 <Row>
                     <Col md={8}>
@@ -21,10 +21,12 @@ const Course = () => {
                         </Row>
                     </Col>
                     <Col md={4}>
-                        <h4>Popular Course</h4>
-                        {
-                            courses.map(c => <p key={c.id}><Link to={`/course/${c.id}`}>{c.course.title}</Link></p>)
-                        }
+                        <div className='course-side-bar side-bar-box'>
+                            <h5 className='mb-3'>Popular Course</h5>
+                            {
+                                courses.map(c => <p key={c.id}><Link to={`/course/${c.id}`}>{c.course.title}</Link></p>)
+                            }
+                        </div>
                     </Col>
                 </Row>
             </Container>

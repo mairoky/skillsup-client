@@ -31,7 +31,7 @@ const Checkout = () => {
     }
 
     return (
-        <div className='checkout'>
+        <div className='checkout my-4'>
             <Container>
                 <Row className='align-items-center'>
                     <Col md={4}>
@@ -44,7 +44,7 @@ const Checkout = () => {
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                        <div className='mt-3 order-details'>
+                        <div className='mt-3 side-bar-box'>
                             <h4>Order Summery</h4>
                             <div className='d-flex justify-content-between my-3'>
                                 <div>Total Price:</div>

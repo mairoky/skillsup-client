@@ -1,0 +1,18 @@
+header {
+    background: #fff;
+}
+
+header .logo span {
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+header .nav-link {
+    font-size: 17px;
+    color: var(--font-color);
+}
+
+header .nav-link:hover,
+header .nav-link:focus {
+    color: var(--secondary-color);
+}

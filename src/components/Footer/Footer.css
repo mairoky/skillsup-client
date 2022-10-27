@@ -1,0 +1,43 @@
+footer {
+    background: #fff;
+}
+
+.footer-top h5 span {
+    color: var(--secondary-color);
+}
+
+.footer-bottom {
+    padding: 20px 0;
+    background: #1b2132;
+}
+
+.footer-bottom p,
+.footer-bottom p a {
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.footer-bottom p a:hover {
+    color: var(--secondary-color);
+}
+
+ul.footer-bottom-social {
+    padding: 0;
+    margin: 0;
+}
+
+ul.footer-bottom-social li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 17px;
+    margin-top: 0;
+}
+
+ul.footer-bottom-social li a {
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+ul.footer-bottom-social li a:hover {
+    color: var(--secondary-color);
+}

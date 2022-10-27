@@ -83,7 +83,7 @@ const Register = () => {
     }
 
     return (
-        <div>
+        <div className='my-4'>
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-7 m-auto">

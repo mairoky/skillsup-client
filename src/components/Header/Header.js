@@ -8,6 +8,9 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 import ProfileImage from '../../images/profile.png';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
+import Logo from '../../images/logo.png';
+import { MdDarkMode } from "react-icons/md";
+import './Header.css';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
@@ -18,10 +21,19 @@ const Header = () => {
             .catch(error => console.error(error))
     }
     return (
-        <header>
-            <Navbar collapseOnSelect expand="lg">
+        <header className='py-2'>
+            <Navbar collapseOnSelect expand="lg" sticky="top">
                 <Container>
-                    <Navbar.Brand as={Link} to="/">Skills<span>UP</span></Navbar.Brand>
+                    <Navbar.Brand className='logo' as={Link} to="/">
+                        <img
+                            alt=""
+                            src={Logo}
+                            width="30"
+                            height="30"
+                            className="d-inline-block align-top"
+                        />{' '}
+                        Skills<span>UP</span>
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="m-auto">
@@ -31,14 +43,14 @@ const Header = () => {
                             <Nav.Link as={NavLink} to="/blog" >Blog</Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link>Dark Theme</Nav.Link>
+                            <Nav.Link><MdDarkMode /></Nav.Link>
                             {
                                 user?.uid ?
                                     <>
                                         <Nav.Link as={Link} onClick={handleLogOut} >
                                             Logout
                                         </Nav.Link>
-                                        <Nav.Link to="/profile">
+                                        <Nav.Link as={Link} to="/profile">
                                             <OverlayTrigger
                                                 placement='bottom'
                                                 overlay={

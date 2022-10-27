@@ -11,10 +11,10 @@ const CourseDetail = () => {
     const { id, course, shortDes, des, learn, instructor, lastUpdate, language, targetAudience, tag } = data;
 
     return (
-        <div className='course-detail'>
+        <div className='course-detail my-4'>
             <div className="course-header py-5">
                 <Container>
-                    <Row>
+                    <Row className='align-items-center'>
                         <Col md={4}>
                             <div className="course-image">
                                 <img className='img-fluid rounded' src={course.image} alt="" />
@@ -32,6 +32,7 @@ const CourseDetail = () => {
                                 <p>Last updated {lastUpdate}</p>
                                 <div className="course-rating-info">
                                     <span><FaStar /><FaStar /><FaStar /><FaStar /><FaStar /> {course.rating}</span>
+                                    <button className='ms-2 btn btn-outline-danger'>Download Curriculum</button>
                                 </div>
                             </div>
                         </Col>
@@ -42,14 +43,14 @@ const CourseDetail = () => {
                 <Container>
                     <Row>
                         <Col md={9}>
-                            <div className="course-detail-info">
+                            <div className="course-detail-info side-bar-box">
                                 <h4>Course Description:</h4>
                                 <p>{des}</p>
                                 <h4>What you'll learn?</h4>
                                 {
                                     learn.map((l, idx) => <li key={idx}><Link>{l}</Link></li>)
                                 }
-                                <h4>Target Audience:</h4>
+                                <h4 className='mt-3'>Target Audience:</h4>
                                 {
                                     targetAudience.map((ta, idx) => <li><Link>{ta}</Link></li>)
                                 }
@@ -63,7 +64,7 @@ const CourseDetail = () => {
                                 <button className='d-block w-100 btn btn-outline-danger'>Download Curriculum</button>
                                 <Link to={`/checkout/${id}`} className='d-block w-100 btn btn-outline-success mt-3'>Enrol Now</Link>
 
-                                <div className="course-feature mt-3">
+                                <div className="course-feature mt-3 side-bar-box">
                                     <h4>Course Features</h4>
                                     <div className='d-flex justify-content-between mb-2'>
                                         <span>Price:</span>
