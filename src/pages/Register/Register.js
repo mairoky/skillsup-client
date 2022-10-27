@@ -10,7 +10,7 @@ const Register = () => {
 
     const [error, setError] = useState('');
     // Get Auth Context Data
-    const { createUser, socialLogin, updateUserProfile } = useContext(AuthContext);
+    const { createUser, socialLogin, updateUserProfile, verifyEmail } = useContext(AuthContext);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -38,7 +38,8 @@ const Register = () => {
                 setError('');
                 form.reset();
                 handleProfileUpdate(name, photo);
-                toast.success('Registration successful! Please verify your email address.');
+                handleEmailVerification();
+                toast.success('Registration successful! Please verify your email address. [If not found:- Check Spam Folder]');
                 navigate(from, { replace: true });
             })
             .catch(err => {
@@ -56,6 +57,13 @@ const Register = () => {
         updateUserProfile(profile)
             .then(() => { })
             .catch(err => console.error(err));
+    }
+
+    // Handle Email Verification
+    const handleEmailVerification = () => {
+        verifyEmail()
+            .then(() => { })
+            .catch(error => console.error(error));
     }
 
     // Handle Google Login

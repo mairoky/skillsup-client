@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -9,10 +9,11 @@ import ProfileImage from '../../images/profile.png';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 import Logo from '../../images/logo.png';
-import { MdDarkMode } from "react-icons/md";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import './Header.css';
 
 const Header = () => {
+    const [darkMode, setDarkMode] = useState(false);
     const { user, logOut } = useContext(AuthContext);
     // Handle Logout
     const handleLogOut = () => {
@@ -20,6 +21,28 @@ const Header = () => {
             .then(() => { })
             .catch(error => console.error(error))
     }
+
+    // useEffect(() => {
+    //     const body = document.body;
+    //     const toggle = document.querySelector('.toggle-inner')
+    //     if (darkMode === true) {
+    //         body.classList.add('dark-mode')
+    //         toggle.classList.add('toggle-active')
+    //     } else {
+    //         body.classList.remove('dark-mode')
+    //         toggle.classList.remove('toggle-active')
+    //     }
+    // }, [darkMode])
+
+    // Handle Theme Mode
+    const handleThemeMode = () => {
+        if (darkMode === true) {
+            setDarkMode(false);
+        } else {
+            setDarkMode(true);
+        }
+    }
+
     return (
         <header className='py-2'>
             <Navbar collapseOnSelect expand="lg" sticky="top">
@@ -43,7 +66,9 @@ const Header = () => {
                             <Nav.Link as={NavLink} to="/blog" >Blog</Nav.Link>
                         </Nav>
                         <Nav>
-                            <Nav.Link><MdDarkMode /></Nav.Link>
+                            <Nav.Link onClick={handleThemeMode}>
+                                {darkMode === true ? <MdDarkMode /> : <MdLightMode />}
+                            </Nav.Link>
                             {
                                 user?.uid ?
                                     <>
